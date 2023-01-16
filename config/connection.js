@@ -1,12 +1,13 @@
 require("dotenv").config();
 const mongoose = require('mongoose');
-const password = process.env.DB_PASSWORD;
+const uri = process.env.MONGO_URI;
+
 
 // Connect to MongoDB
 async function main(){
-await mongoose.connect('mongodb+srv://mealtracker:MT-123@cluster0.6f8zcte.mongodb.net/?retryWrites=true&w=majority', 
+await mongoose.connect(uri, 
 { useNewUrlParser: true, useUnifiedTopology: true,
     });
 }
 
-module.exports = connection;
+module.exports = main;

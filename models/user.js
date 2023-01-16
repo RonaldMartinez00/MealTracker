@@ -7,10 +7,10 @@ const userSchema = new Schema({
     userlastname:String, 
     useremail:String, 
     userpassword:String,
-    createdate:String
+    createdate:Date
 });
 
-const User = mongoose.model('user', userSchema);
+const User = mongoose.model('users', userSchema);
 
 
 

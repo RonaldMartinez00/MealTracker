@@ -7,6 +7,9 @@ const userRoutes = require("./controllers/user.js");
 const app = express();
 const port = process.env.PORT;
 const uri = process.env.MONGO_URI;
+const mealRoutes = require("./controllers/meals");
+
+app.use(bodyParser.json())
 
 
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
@@ -18,17 +21,9 @@ db.once("open", function() {
 
 
 app.use("/", userRoutes);
+app.use("/meals",mealRoutes);
 
 // Start the server
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
 });
-
-app.get('/users', async (req, res) => {
-  try {
-      const users = await users.find({});
-      res.status(200).send(users);
-  } catch (error) {
-      res.status(500).send(error);
-  }
-})
