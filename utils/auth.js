@@ -4,7 +4,7 @@ const router = express.Router();
 
 
 // secret key for signing JWT
-const secret = 'secretkeyshh';
+const secret = process.env.SECRET_JWT;
 
 // middleware to check for valid JWT
 const checkJWT = (req, res, next) => {
