@@ -8,8 +8,19 @@ const app = express();
 const port = process.env.PORT;
 const uri = process.env.MONGO_URI;
 const mealRoutes = require("./controllers/meals");
+const cors = require('cors');
+const { METHODS } = require('http');
 
-app.use(bodyParser.json())
+
+
+var corsOptions= {
+origin:'http://localhost:3000',
+methods:"GET, POST, DELETE, PUT",
+changeOrigin:true, 
+credentials:true
+};
+app.use(cors(corsOptions));
+app.use(bodyParser.json());
 
 
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
@@ -22,7 +33,7 @@ db.once("open", function() {
 
 app.use("/", userRoutes);
 app.use("/meals",mealRoutes);
-
+app.use("/auth",require('./utils/auth'))
 // Start the server
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
