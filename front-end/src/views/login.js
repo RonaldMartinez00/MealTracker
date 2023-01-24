@@ -1,6 +1,8 @@
 import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {CurrentUser} from '../context/currentuser'
+import Navbar from './navbar';
+
 
 //import { useNavigate } from 'react-router-dom';
 
@@ -34,9 +36,13 @@ function Login() {
     } catch (error) {
             console.log(error)
 }};
-return (    
+return (   
+    <div>
+    <div>
+            <Navbar />
+            {/* rest of the TrackerPage JSX */}
+        </div>
         <div>
-            <h1>Login</h1>
             <div className="row">
                 <form className="column" id="login-form">
                     <h2 className="loginTitle">Login</h2>
@@ -50,6 +56,7 @@ return (
                 </form>
             </div>
         </div>
+        </div> 
     );
 };
 
