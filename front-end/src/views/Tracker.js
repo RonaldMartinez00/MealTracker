@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+/*import React, { useContext } from 'react';
 import Logoutbtn from '../components/logout';
 import {CurrentUser} from '../context/currentuser'
 //send userID, a date somehow within -> (req.body) within -> try block Tracker
@@ -24,4 +24,4 @@ function Tracker() {
     }
 };
 
-export default Tracker;
+export default Tracker;*/

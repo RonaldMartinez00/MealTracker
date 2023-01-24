@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Navbar from './navbar';
+
 function Signup(){  
 const navigate = useNavigate()
 const [namesignup, setnamesignup] = useState(null);
@@ -26,6 +28,10 @@ try{
 };
 return(
     <div>
+    <div>
+            <Navbar />
+        </div>
+    <div className="row">
         <form className="column" id="signup-form">
         <h2 className="loginTitle">Sign Up</h2>
             <label className="loginInput">Name:
@@ -40,6 +46,7 @@ return(
                 setpasswordsignup(e.target.value); console.log(passwordsignup)}}/>
             <button onClick={handleSubmit} type="submit" id="signupButton">Sign Up</button>
         </form>
+    </div>
     </div>
     );
 };
