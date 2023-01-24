@@ -20,8 +20,9 @@ changeOrigin:true,
 credentials:true
 };
 app.use(cors(corsOptions));
-app.use(bodyParser.json());
-
+app.use(express.urlencoded({extended:true}));
+app.use(express.json())
+app.use(express.static('public'))
 
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
@@ -33,7 +34,7 @@ db.once("open", function() {
 
 app.use("/", userRoutes);
 app.use("/meals",mealRoutes);
-app.use("/auth",require('./utils/auth'))
+app.use("/auth",require('./utils/auth.js'))
 // Start the server
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);

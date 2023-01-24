@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 // get meals
 router.get('/', async (req, res) => {
     try {
-       const meals = await mealsModel.find({});
+       const meals = await mealsModel.findOne({});
        console.log(meals);
        res.json(meals)
     } catch (err) {

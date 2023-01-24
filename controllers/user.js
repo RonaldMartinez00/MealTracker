@@ -21,7 +21,7 @@ router.post('/',async (req, res) => {
         // Get data from the request body
         const data = req.body;
         // Create a new user object
-        const newUser = new User(data);
+        const newUser = new user(data);
         // Save the user object to the database
         await newUser.save();
         // Send a response to the client
