@@ -1,17 +1,20 @@
 import './App.css';
 import {Routes, Route} from 'react-router-dom';
-import Home from './views/Home';
+import Login from './views/login.js';
 import Tracker from './views/Tracker'
+import CurrentUserProvider from './context/currentuser';
+
 
 function App() {
   return (
-
-  <Routes> 
-    <Route exact path='/' element={<Home/>}/>
-    <Route exact path='/tracker' element={<Tracker/>}/>
-  </Routes>
-    
+    <CurrentUserProvider>
+      <Routes> 
+        <Route exact path='/' element={<Login/>}/>
+        <Route exact path='/tracker' element={<Tracker/>}/>
+      </Routes>
+    </CurrentUserProvider>
   );
-}
+};
+
 
 export default App;

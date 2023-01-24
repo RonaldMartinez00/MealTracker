@@ -7,7 +7,7 @@ const checkJWT = require('../utils/auth');
 // routes
 router.get('/', checkJWT ,async (req, res) => {
     try {
-       const users = await user.find({});
+       const users = await user.findOne({});
        console.log(users);
        res.json(users)
     } catch (err) {
