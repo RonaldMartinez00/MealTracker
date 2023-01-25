@@ -4,7 +4,8 @@ import Login from './views/login.js';
 import CurrentUserProvider from './context/currentuser';
 import Signup from './views/signup';
 import Home from './views/home';
-import Navbar from './views/navbar'
+import Navbar from './views/navbar';
+import Api from './views/api';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route exact path='/signup' element={<Signup/>}/>
         <Route exact path='/login' element={<Login/>}/>
         <Route exact path='/navbar' element={<Navbar/>}/>
+        <Route exact path='/api' element={<Api/>}/>
       </Routes>
     </CurrentUserProvider>
   );
