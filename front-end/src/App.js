@@ -4,7 +4,6 @@ import Login from './views/login.js';
 import CurrentUserProvider from './context/currentuser';
 import Signup from './views/signup';
 import Home from './views/home';
-import Navbar from './views/navbar'
 import GetMeals from './views/Tracker';
 import Navbar from './views/navbar';
 import Api from './views/api';
