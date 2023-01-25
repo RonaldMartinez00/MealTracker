@@ -2,7 +2,6 @@ import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {CurrentUser} from '../context/currentuser'
 
-//import { useNavigate } from 'react-router-dom';
 
 function Login() {
     const [passwordLogin,setpasswordLogin] = useState(null);
@@ -52,6 +51,7 @@ return (
         </div>
     );
 };
+
 
 export default Login;
 

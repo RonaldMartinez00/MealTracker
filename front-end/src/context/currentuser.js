@@ -19,6 +19,7 @@ function CurrentUserProvider({children}){
             }
             let user = await response.json()
             setCurrentUser(user)
+            console.log(currentUser)
         } catch (error) {
             console.error(error)
         }
@@ -26,7 +27,7 @@ function CurrentUserProvider({children}){
         
 
         getLoggedInUser()
-    },  [currentUser])
+    },  [])
     
 
     return(
