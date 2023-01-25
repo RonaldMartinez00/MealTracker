@@ -5,9 +5,14 @@ const mongoose = require('mongoose');
 
 
 // get meals
-router.get('/', async (req, res) => {
+router.get('/:userId/:start/:end', async (req, res) => {
     try {
-       const meals = await mealsModel.findOne({});
+       const meals = await mealsModel.findOne({   
+        userId: req.params.userId,
+        mealcreatedate: {
+            $gte: new Date(req.params.start),
+            $lte: new Date(req.params.end)
+        }});
        console.log(meals);
        res.json(meals)
     } catch (err) {

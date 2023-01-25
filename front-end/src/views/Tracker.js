@@ -1,27 +1,64 @@
-/*import React, { useContext } from 'react';
+import React, { useContext, useState , useEffect} from 'react';
+import { useNavigate } from 'react-router-dom';
+import DatePicker from "react-datepicker";
 import Logoutbtn from '../components/logout';
-import {CurrentUser} from '../context/currentuser'
-//send userID, a date somehow within -> (req.body) within -> try block Tracker
-//change getroute within meals controller -> put in try block
-//when i receieve date, find way to make specific day the end of the day (11:59pm) and create a new var that gets same day but midnight (12:00 am) 
-//NEED THESE 2 to search db for any meal within these 2 dates cuz when defined it comes at diff times. 
+import {CurrentUser} from '../context/currentuser';
+import "react-datepicker/dist/react-datepicker.css";
+ /*const [mealname, setMealname]= useState(null);
+    const [calories, setCalories] = useState(null);
+    const [carbs, setCarbs]= useState(null);
+    const [fat, setFat]= useState(null);
+    const [protein,setProtein]= useState(null);*/
+// GET userid from currentUser 
+// getting date alr so all good 
 
-
-function Tracker() {
+function GetMeals() {
+    const navigate = useNavigate();
+    const [date, onChange] = useState( new Date());
     const {currentUser}= useContext(CurrentUser);
-    try { // just continue error is cus => not done add catch
-        const response = await fetch('/meals') 
-    
-//{currentUser ? <p> {currentUser._id}</p> : null}  calls db info (change _id for diff results)
-    return(
+    console.log(currentUser)
+    useEffect(() =>{
+    const start = new Date(date);
+    start.setHours(0, 0, 0, 0);
+    const end = new Date(date);
+    end.setHours(23, 59, 59, 999);
+    fetch(`http://localhost:5000/meals/${currentUser._id}/${start}/${end}`, {
+        method: 'GET',
+        credentials: 'include',
+        headers: { 'Content-Type': 'application/json' }
+    })
+    .then((response) => response.json())
+    .then((data) => {
+        console.log(data)// Do something with the data
+    })
+    .catch((error) => {
+        console.error(error);
+    });
+    },[date]);
+    console.log(date);
+    return (
         <div>
-            {currentUser ? <p> {currentUser._id}</p> : null} 
-            <Logoutbtn/>
+            <DatePicker 
+                selected={date} 
+                onChange= {onChange} value={date}
+                dateFormat=	"y-MM-dd"
+                timeCaption="time"
+            />
+                    <div>
+            {this.state.meals.map((meal) => (
+                <div key={meal._id}>
+                    <h2>{meal.name}</h2>
+                    <p>{meal.description}</p>
+                    <p>{meal.calories}</p>
+                    <p>{meal.createdAt}</p>
+                </div>
+            ))}
         </div>
+            <Logoutbtn />
 
-
-    )
-    }
+        </div>
+    );
 };
 
-export default Tracker;*/
+
+export default GetMeals
