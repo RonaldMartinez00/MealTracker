@@ -40,7 +40,6 @@ return (
     <div>
     <div>
             <Navbar />
-            {/* rest of the TrackerPage JSX */}
         </div>
         <div>
             <div className="row">
