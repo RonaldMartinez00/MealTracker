@@ -6,7 +6,7 @@ import Signup from './views/signup';
 import Home from './views/home';
 import GetMeals from './views/Tracker';
 import Navbar from './views/navbar';
-import Api from './views/api';
+
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
         <Route exact path='/login' element={<Login/>}/>
         <Route exact path='/navbar' element={<Navbar/>}/>
         <Route exact path='/tracker' element={<Tracker/>}/>
-        <Route exact path='/api' element={<Api/>}/>
+
       </Routes>
     </CurrentUserProvider>
   );
