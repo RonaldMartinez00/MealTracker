@@ -42,7 +42,7 @@ const checkJWT = (req, res, next) => {
 router.post("/", async(req,res) => {
     const user = await User.findOne({ useremail : req.body.useremail });
     try {
-        if (!user){
+        if (!user || req.body.userpassword !== user.userpassword){
 
             res.status(404).json({
                 message: `User not found`
@@ -51,7 +51,6 @@ router.post("/", async(req,res) => {
         else{
             const result = await jwt.encode(process.env.SECRET_JWT, {id:user._id})
             res.json({user: user, token:result.value});
-            console.log(result);
         }
         } catch (err) {
             console.error(err);
