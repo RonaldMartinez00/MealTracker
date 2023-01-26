@@ -6,10 +6,10 @@ const app = express();
 const mealsSchema = new Schema({ 
     userid:String,
     mealname:String,
-    calories:Decimal128,
-    carbs:Decimal128,
-    fat:Decimal128,
-    protein:Decimal128,
+    calories:String,
+    carbs:String,
+    fat:String,
+    protein:String,
     mealcreatedate:Date
 });
 
