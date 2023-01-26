@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 // get meals
 router.get('/:userId/:start/:end', async (req, res) => {
     try {
-       const meals = await mealsModel.findOne({   
+       const meals = await mealsModel.find({   
         userId: req.params.userId,
         mealcreatedate: {
             $gte: new Date(req.params.start),
