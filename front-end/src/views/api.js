@@ -18,6 +18,9 @@ function Api() {
           <p>Meal Name: {data.meals[0].strMeal}</p>
           <p>Meal Category: {data.meals[0].strCategory}</p>
           <p>Meal Instructions: {data.meals[0].strInstructions}</p>
+          {data.meals[0].strIngredient1 && <img src={`https://www.themealdb.com/images/ingredients/${data.meals[0].strIngredient1}.png`} alt={data.meals[0].strIngredient1}/>}
+          {data.meals[0].strIngredient2 && <img src={`https://www.themealdb.com/images/ingredients/${data.meals[0].strIngredient2}.png`} alt={data.meals[0].strIngredient2}/>}
+          {data.meals[0].strIngredient3 && <img src={`https://www.themealdb.com/images/ingredients/${data.meals[0].strIngredient3}.png`} alt={data.meals[0].strIngredient3}/>}
         </div>
       )}
     </div>
