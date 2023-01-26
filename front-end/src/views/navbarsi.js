@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom'
 
-
-function Navbar() {
+function Navbarsi() {
     const [time, setTime] = useState(new Date().toLocaleTimeString());
     const [intervalId, setIntervalId] = useState(null);
 
@@ -23,13 +21,14 @@ function Navbar() {
                 <div className="clock-style">
                 {time}
                 </div>
-                <button className="move-right login-home">
-                <Link to='/login' className="login-home">Already a user? Login here.</Link>
-                </button>
+                <div className="nav-links">
+                    <a className="tracker-style" href="/tracker">Meal Tracker</a>
+                    <a className="api-style" href="/mealform">Meal Form</a>
+                    <a className="api-style" href="/api">Random Recipe</a>
+                </div>
             </div>
         </header>
     );
 };
 
-export default Navbar;
-
+export default Navbarsi;
