@@ -9,7 +9,7 @@ router.get('/:userId/:start/:end', async (req, res) => {
     try {
        const meals = await mealsModel.find({
         $and: [
-            { mealUserId: req.params.userId },
+            { meal_user_id: req.params.userId },
             { 
                 mealcreatedate: {
                     $gte: new Date(req.params.start),
@@ -18,7 +18,6 @@ router.get('/:userId/:start/:end', async (req, res) => {
             }
         ]
        });
-       console.log(meals);
        res.json(meals)
     } catch (err) {
       console.error(err);
