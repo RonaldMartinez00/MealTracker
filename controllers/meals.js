@@ -7,12 +7,17 @@ const mongoose = require('mongoose');
 // get meals
 router.get('/:userId/:start/:end', async (req, res) => {
     try {
-       const meals = await mealsModel.find({   
-        userId: req.params.userId,
-        mealcreatedate: {
-            $gte: new Date(req.params.start),
-            $lte: new Date(req.params.end)
-        }});
+       const meals = await mealsModel.find({
+        $and: [
+            { mealUserId: req.params.userId },
+            { 
+                mealcreatedate: {
+                    $gte: new Date(req.params.start),
+                    $lte: new Date(req.params.end)
+                }
+            }
+        ]
+       });
        console.log(meals);
        res.json(meals)
     } catch (err) {
@@ -20,6 +25,7 @@ router.get('/:userId/:start/:end', async (req, res) => {
       res.status(500).send(err.message);
     }
 });
+
 //create new meal
 router.post('/' ,async (req, res) => {
     try {

@@ -3,19 +3,16 @@ import DatePicker from "react-datepicker";
 import Logoutbtn from '../components/logout';
 import {CurrentUser} from '../context/currentuser';
 import "react-datepicker/dist/react-datepicker.css";
- /*const [mealname, setMealname]= useState(null);
-    const [calories, setCalories] = useState(null);
-    const [carbs, setCarbs]= useState(null);
-    const [fat, setFat]= useState(null);
-    const [protein,setProtein]= useState(null);*/
+import {useNavigate} from 'react-router-dom'
 
 
 function Tracker() {
+    const navigate = useNavigate()
     const [date, onChange] = useState( new Date());
     const {currentUser}= useContext(CurrentUser);
     const [meals,setMeals]=useState([]);
     console.log(meals)
-    console.log(currentUser)
+    console.log(currentUser._id)
     useEffect(() =>{
         const start = new Date(date);
         start.setHours(0, 0, 0, 0);
@@ -54,6 +51,7 @@ function Tracker() {
                     <p>{meal.protein}</p>
                 </div>
             ))}
+                <button onClick={() => navigate('/mealform')}>Create A Meal!</button>
             <Logoutbtn />
 
         </div>

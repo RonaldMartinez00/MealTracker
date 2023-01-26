@@ -4,7 +4,7 @@ const express = require('express');
 const { Decimal128 } = require('bson');
 const app = express();
 const mealsSchema = new Schema({ 
-    userid:String,
+    meal_user_id:String,
     mealname:String,
     calories:String,
     carbs:String,
