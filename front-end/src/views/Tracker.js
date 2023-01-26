@@ -67,7 +67,7 @@ function Tracker() {
             </div>
 
             {currentUser ? <p class="display-name" >Hello {currentUser.userfirstname} start tracking your meals here!</p> : null}
-            <p class="description">Here you can view all past dine diary entries.</p>
+            <p class="description">Here you can view all past Dine Diary entries.</p>
             <DatePicker 
                 selected={date} 
                 onChange= {onChange} value={date}
@@ -75,7 +75,8 @@ function Tracker() {
                 timeCaption="time"
             />
             <div class="container">
-                <button onClick={() => navigate('/mealform')}>Create A Meal!</button>
+                <div className='styling-button'>
+                <button onClick={() => navigate('/mealform')}>Create A Meal!</button></div>
                 <div class="data-container">
                     {meals.map((meal) => (
                         <div class="data-box" key={meal._id}>
