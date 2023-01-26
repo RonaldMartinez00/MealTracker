@@ -44,6 +44,7 @@ return (
     
     <div>
         <div>
+
             <Navbarsi />
         </div>
 
@@ -54,6 +55,9 @@ return (
     <p class="display-name">Create a meal here!</p>
     <p class="description">Start by selecting a date.</p>
 
+
+        </div> 
+
         <DatePicker 
             selected={date} 
             onChange= {onChange} value={date}
@@ -61,7 +65,6 @@ return (
             timeCaption="time"
         />
 
-        
     <div className="row">
         <form className="column" id="meal-form">
         <h2 className="mealTitle">Create a Meal!</h2>
