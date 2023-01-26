@@ -43,6 +43,9 @@ function Mealform(){
 return (
     
     <div>
+        <div>
+            <Navbar />
+        </div> 
         <DatePicker 
             selected={date} 
             onChange= {onChange} value={date}
@@ -50,9 +53,7 @@ return (
             timeCaption="time"
         />
         <Logoutbtn />
-        <div>
-            <Navbar />
-        </div>
+
     <div className="row">
         <form className="column" id="meal-form">
         <h2 className="mealTitle">Create a Meal!</h2>

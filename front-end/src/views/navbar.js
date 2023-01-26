@@ -24,7 +24,7 @@ function Navbar() {
                 </div>
                 <div className="nav-links">
                     <a className="tracker-style" href="/tracker">Meal Tracker</a>
-                    <a className="api-style" href="api.html">API</a>
+                    <a className="api-style" href="/api">API</a>
                     <a className="profile" href="profile.html">Profile</a>
                 </div>
                 <button className="move-right login-home">
