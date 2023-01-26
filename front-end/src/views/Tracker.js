@@ -4,7 +4,7 @@ import Logoutbtn from '../components/logout';
 import {CurrentUser} from '../context/currentuser';
 import "react-datepicker/dist/react-datepicker.css";
 import {useNavigate} from 'react-router-dom'
-
+import Navbarsi from './navbarsi';
 
 function Tracker() {
     const {currentUser}= useContext(CurrentUser);
@@ -58,28 +58,39 @@ function Tracker() {
     
     return (
         <div>
-            {currentUser ? <p>{currentUser.userfirstname}, {currentUser._id}</p> : null}
+             <div>
+            <Navbarsi />
+        </div>
+
+        <div class="style-logout">
+        <Logoutbtn />
+        </div>
+
+            {currentUser ? <p class="display-name" >Hello {currentUser.userfirstname} start tracking your meals here!</p> : null}
+            <p class="description">Here you can view all past dine diary entries.</p>
             <DatePicker 
                 selected={date} 
                 onChange= {onChange} value={date}
                 dateFormat=	"y-MM-dd"
                 timeCaption="time"
             />
+            <div class="container">
+    <button onClick={() => navigate('/mealform')}>Create A Meal!</button>
+        <div class="data-container">
             {meals.map((meal) => (
-                <div key={meal._id}>
-                    <h2>{meal.mealname}</h2>
-                    <p>{meal.carbs}</p>
-                    <p>{meal.calories}</p>
-                    <p>{meal.fat}</p>
-                    <p>{meal.protein}</p>
+                <div class="data-box" key={meal._id}>
+                    <h2>NAME: {meal.mealname}</h2>
+                    <p>CARBS: {meal.carbs}</p>
+                    <p>CALORIES: {meal.calories}</p>
+                    <p>FAT: {meal.fat}</p>
+                    <p>PROTEIN: {meal.protein}</p>
                     <button onClick={() => deletedMeal(meal._id)}>Delete Meal</button>
-                </div>
-            ))}
-                <button onClick={() => navigate('/mealform')}>Create A Meal!</button>
-            <Logoutbtn />
-
-        </div>
-    );
-};
+                   
+      </div>
+    ))} 
+    <button onClick={() => navigate('/mealform')}>Create A Meal!</button>
+  </div>
+   
+</div>
 
 export default Tracker

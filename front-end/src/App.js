@@ -7,7 +7,9 @@ import Home from './views/home';
 import Tracker from './views/Tracker';
 import Navbar from './views/navbar';
 import Mealform from './views/mealform';
+import Navbarsi from './views/navbarsi';
 import Api from './views/api';
+
 
 
 function App() {
@@ -19,6 +21,7 @@ function App() {
         <Route exact path='/login' element={<Login/>}/>
         <Route exact path='/navbar' element={<Navbar/>}/>
         <Route exact path='/tracker' element={<Tracker/>}/>
+        <Route exact path='/navbarsi' element={<Navbarsi/>}/>
         <Route exact path='/mealform' element={<Mealform/>}/>
         <Route exact path='/api' element={<Api/>}/>
       </Routes>
