@@ -245,6 +245,7 @@ input[type="submit"]:hover {
   font-size: 20px;
   display: flex;
   justify-content: center;
+  margin-left: 140px;
 }
 
 header {
@@ -291,7 +292,7 @@ header {
     color: black;
 }
  .move-right{
-    margin-left: 210px;
+    margin-left: 50px;
     background-color:white;
  }
 
@@ -315,3 +316,75 @@ header {
   width: 400px;
   margin-top: 80px;
 }
+
+.display-name{
+  font-size: 32px;
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+  margin-top: 30px;
+}
+
+.description{
+  font-size: 24px;
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+  margin-top: 30px;
+}
+
+.datepicker {
+  font-size: 20px;
+  text-align: center;
+  }
+
+
+  .container {
+    display: flex;
+    align-items: center;
+   justify-content: center;
+  }
+  
+  .data-container {
+    display: flex;
+    flex-wrap: wrap;
+
+  }
+  
+  .data-box {
+    width: 190px;
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    font-family: 'Courier New', Courier, monospace;
+  }
+  
+  .column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.form-label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.form-input {
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    border: 1px solid #ccc;
+}
+
+.style-logout{
+  margin-top: 15px;
+  margin-left: 15px;
+
+}
+

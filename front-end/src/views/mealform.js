@@ -1,10 +1,10 @@
 import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {CurrentUser} from '../context/currentuser'
-import Navbar from './navbar';
 import Logoutbtn from '../components/logout';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import Navbarsi from './navbarsi';
 
 
 function Mealform(){
@@ -43,16 +43,25 @@ function Mealform(){
 return (
     
     <div>
+        <div>
+            <Navbarsi />
+        </div>
+
+        <div class="style-logout">
+            <Logoutbtn />
+        </div>
+
+    <p class="display-name">Create a meal here!</p>
+    <p class="description">Start by selecting a date.</p>
+
         <DatePicker 
             selected={date} 
             onChange= {onChange} value={date}
             dateFormat=	"y-MM-dd"
             timeCaption="time"
         />
-        <Logoutbtn />
-        <div>
-            <Navbar />
-        </div>
+
+        
     <div className="row">
         <form className="column" id="meal-form">
         <h2 className="mealTitle">Create a Meal!</h2>
@@ -75,7 +84,7 @@ return (
             <button onClick={handleSubmit} type="submit" id="createmeal">Create Meal!</button>
         </form>
     </div>
-
+    
     </div>
     );
     };  
