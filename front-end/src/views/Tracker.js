@@ -58,13 +58,13 @@ function Tracker() {
     
     return (
         <div>
-             <div>
-            <Navbarsi />
-        </div>
+            <div>
+                <Navbarsi />
+            </div>
 
-        <div class="style-logout">
-        <Logoutbtn />
-        </div>
+            <div class="style-logout">
+                <Logoutbtn />
+            </div>
 
             {currentUser ? <p class="display-name" >Hello {currentUser.userfirstname} start tracking your meals here!</p> : null}
             <p class="description">Here you can view all past dine diary entries.</p>
@@ -75,22 +75,23 @@ function Tracker() {
                 timeCaption="time"
             />
             <div class="container">
-    <button onClick={() => navigate('/mealform')}>Create A Meal!</button>
-        <div class="data-container">
-            {meals.map((meal) => (
-                <div class="data-box" key={meal._id}>
-                    <h2>NAME: {meal.mealname}</h2>
-                    <p>CARBS: {meal.carbs}</p>
-                    <p>CALORIES: {meal.calories}</p>
-                    <p>FAT: {meal.fat}</p>
-                    <p>PROTEIN: {meal.protein}</p>
-                    <button onClick={() => deletedMeal(meal._id)}>Delete Meal</button>
-                   
-      </div>
-    ))} 
-    <button onClick={() => navigate('/mealform')}>Create A Meal!</button>
-  </div>
+                <button onClick={() => navigate('/mealform')}>Create A Meal!</button>
+                <div class="data-container">
+                    {meals.map((meal) => (
+                        <div class="data-box" key={meal._id}>
+                            <h2>NAME: {meal.mealname}</h2>
+                            <p>CARBS: {meal.carbs}</p>
+                            <p>CALORIES: {meal.calories}</p>
+                            <p>FAT: {meal.fat}</p>
+                            <p>PROTEIN: {meal.protein}</p>
+                            <button onClick={() => deletedMeal(meal._id)}>Delete Meal</button>
+                    
+                        </div>
+                    ))} 
+                </div>
    
-</div>
+            </div>
+        </div>
+    )}
 
 export default Tracker
