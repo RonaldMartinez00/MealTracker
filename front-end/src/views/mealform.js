@@ -55,9 +55,6 @@ return (
     <p class="display-name">Create a meal here!</p>
     <p class="description">Start by selecting a date.</p>
 
-
-        </div> 
-
         <DatePicker 
             selected={date} 
             onChange= {onChange} value={date}
