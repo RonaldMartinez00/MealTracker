@@ -3,42 +3,40 @@ import DatePicker from "react-datepicker";
 import Logoutbtn from '../components/logout';
 import {CurrentUser} from '../context/currentuser';
 import "react-datepicker/dist/react-datepicker.css";
- /*const [mealname, setMealname]= useState(null);
-    const [calories, setCalories] = useState(null);
-    const [carbs, setCarbs]= useState(null);
-    const [fat, setFat]= useState(null);
-    const [protein,setProtein]= useState(null);*/
+import {useNavigate} from 'react-router-dom'
 
 
 function Tracker() {
-    const [date, onChange] = useState( new Date());
     const {currentUser}= useContext(CurrentUser);
+    const navigate = useNavigate()
+    const [date, onChange] = useState( new Date());
     const [meals,setMeals]=useState([]);
-    console.log(meals)
-    console.log(currentUser)
     useEffect(() =>{
-        const start = new Date(date);
-        start.setHours(0, 0, 0, 0);
-        const end = new Date(date);
-        end.setHours(23, 59, 59, 999);
-        fetch(`http://localhost:5000/meals/${currentUser._id}/${start}/${end}`, {
-            method: 'GET',
-            credentials: 'include',
-            headers: { 'Content-Type': 'application/json' }
-        }) 
-        .then((response) => response.json())
-        .then((data) => {
-            setMeals(data)// Do something with the data
-            
-        })
-        .catch((error) => {
-            console.error(error);
-        });
+        if (currentUser) {
+            const start = new Date(date);
+            start.setHours(0, 0, 0, 0);
+            const end = new Date(date);
+            end.setHours(23, 59, 59, 999);
+            fetch(`http://localhost:5000/meals/${currentUser._id}/${start}/${end}`, {
+                method: 'GET',
+                credentials: 'include',
+                headers: { 'Content-Type': 'application/json' }
+            }) 
+            .then((response) => response.json())
+            .then((data) => {
+                setMeals(data)// Do something with the data
+                
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+        }
     },[date, currentUser]);
 
     
     return (
         <div>
+            {currentUser ? <p>{currentUser.userfirstname}, {currentUser._id}</p> : null}
             <DatePicker 
                 selected={date} 
                 onChange= {onChange} value={date}
@@ -54,6 +52,7 @@ function Tracker() {
                     <p>{meal.protein}</p>
                 </div>
             ))}
+                <button onClick={() => navigate('/mealform')}>Create A Meal!</button>
             <Logoutbtn />
 
         </div>

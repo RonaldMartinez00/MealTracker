@@ -6,6 +6,7 @@ import Signup from './views/signup';
 import Home from './views/home';
 import Tracker from './views/Tracker';
 import Navbar from './views/navbar';
+import Mealform from './views/mealform';
 
 
 function App() {
@@ -17,7 +18,7 @@ function App() {
         <Route exact path='/login' element={<Login/>}/>
         <Route exact path='/navbar' element={<Navbar/>}/>
         <Route exact path='/tracker' element={<Tracker/>}/>
-
+        <Route exact path='/mealform' element={<Mealform/>}/>
       </Routes>
     </CurrentUserProvider>
   );

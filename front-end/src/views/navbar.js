@@ -23,7 +23,7 @@ function Navbar() {
                 {time}
                 </div>
                 <div className="nav-links">
-                    <a className="tracker-style" href="tracker.html">Meal Tracker</a>
+                    <a className="tracker-style" href="/tracker">Meal Tracker</a>
                     <a className="api-style" href="api.html">API</a>
                     <a className="profile" href="profile.html">Profile</a>
                 </div>

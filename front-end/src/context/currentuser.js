@@ -25,8 +25,8 @@ function CurrentUserProvider({children}){
     };
         
 
-        getLoggedInUser()
-    },  [setCurrentUser])
+    getLoggedInUser()
+},  [setCurrentUser])
     
 
     return(
