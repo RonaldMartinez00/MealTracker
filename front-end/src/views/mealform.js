@@ -17,24 +17,27 @@ function Mealform(){
     const [protein,setProtein]= useState(null);
     const [date, onChange] = useState( new Date());
     const handleSubmit = async (e) => {
-    e.preventDefault()
-    try{
-        await fetch('http://localhost:5000/', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({    
-            insertmealname:mealname,
-            insertcalories:calories,
-            insertcarbs:carbs,
-            insertfat:fat,
-            insertprotein:protein,
-        })
-    })
-   
-    } catch(error){
-    console.error(error)
-  
-    } 
+        e.preventDefault()
+        try{
+            await fetch('http://localhost:5000/meals', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({   
+                    meal_user_id:currentUser._id, 
+                    mealname:mealname,
+                    calories:calories,
+                    carbs:carbs,
+                    fat:fat,
+                    protein:protein,
+                    mealcreatedate:date
+                })
+            })
+            navigate('/tracker')
+    
+        } catch(error){
+        console.error(error)
+    
+        } 
     };
 
 return (
