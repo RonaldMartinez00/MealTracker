@@ -1,5 +1,4 @@
 import React, { useContext, useState , useEffect} from 'react';
-import { useNavigate } from 'react-router-dom';
 import DatePicker from "react-datepicker";
 import Logoutbtn from '../components/logout';
 import {CurrentUser} from '../context/currentuser';
@@ -9,33 +8,35 @@ import "react-datepicker/dist/react-datepicker.css";
     const [carbs, setCarbs]= useState(null);
     const [fat, setFat]= useState(null);
     const [protein,setProtein]= useState(null);*/
-// GET userid from currentUser 
-// getting date alr so all good 
 
-function GetMeals() {
-    const navigate = useNavigate();
+
+function Tracker() {
     const [date, onChange] = useState( new Date());
     const {currentUser}= useContext(CurrentUser);
+    const [meals,setMeals]=useState([]);
+    console.log(meals)
     console.log(currentUser)
     useEffect(() =>{
-    const start = new Date(date);
-    start.setHours(0, 0, 0, 0);
-    const end = new Date(date);
-    end.setHours(23, 59, 59, 999);
-    fetch(`http://localhost:5000/meals/${currentUser._id}/${start}/${end}`, {
-        method: 'GET',
-        credentials: 'include',
-        headers: { 'Content-Type': 'application/json' }
-    })
-    .then((response) => response.json())
-    .then((data) => {
-        console.log(data)// Do something with the data
-    })
-    .catch((error) => {
-        console.error(error);
-    });
-    },[date]);
-    console.log(date);
+        const start = new Date(date);
+        start.setHours(0, 0, 0, 0);
+        const end = new Date(date);
+        end.setHours(23, 59, 59, 999);
+        fetch(`http://localhost:5000/meals/${currentUser._id}/${start}/${end}`, {
+            method: 'GET',
+            credentials: 'include',
+            headers: { 'Content-Type': 'application/json' }
+        }) 
+        .then((response) => response.json())
+        .then((data) => {
+            setMeals(data)// Do something with the data
+            
+        })
+        .catch((error) => {
+            console.error(error);
+        });
+    },[date, currentUser]);
+
+    
     return (
         <div>
             <DatePicker 
@@ -44,21 +45,19 @@ function GetMeals() {
                 dateFormat=	"y-MM-dd"
                 timeCaption="time"
             />
-                    <div>
-            {this.state.meals.map((meal) => (
+            {meals.map((meal) => (
                 <div key={meal._id}>
-                    <h2>{meal.name}</h2>
-                    <p>{meal.description}</p>
+                    <h2>{meal.mealname}</h2>
+                    <p>{meal.carbs}</p>
                     <p>{meal.calories}</p>
-                    <p>{meal.createdAt}</p>
+                    <p>{meal.fat}</p>
+                    <p>{meal.protein}</p>
                 </div>
             ))}
-        </div>
             <Logoutbtn />
 
         </div>
     );
 };
 
-
-export default GetMeals
+export default Tracker
