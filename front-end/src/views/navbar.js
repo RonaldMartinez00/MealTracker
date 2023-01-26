@@ -1,12 +1,27 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
 
-
 function Navbar() {
+    const [time, setTime] = useState(new Date().toLocaleTimeString());
+    const [intervalId, setIntervalId] = useState(null);
+
+    const updateTime = () => {
+        setTime(new Date().toLocaleTimeString());
+    };
+
+    useEffect(() => {
+        const interval = setInterval(updateTime, 1000);
+        setIntervalId(interval);
+        return () => clearInterval(intervalId);
+    }, []);
+
     return (
         <header>
             <div className="nav-style">
                 <h1 className="h1-fit">Dine Diary</h1>
+                <div className="clock-style">
+                {time}
+                </div>
                 <div className="nav-links">
                     <a className="tracker-style" href="tracker.html">Meal Tracker</a>
                     <a className="api-style" href="api.html">API</a>
@@ -21,3 +36,4 @@ function Navbar() {
 };
 
 export default Navbar;
+
