@@ -11,27 +11,49 @@ function Tracker() {
     const navigate = useNavigate()
     const [date, onChange] = useState( new Date());
     const [meals,setMeals]=useState([]);
+    const [updatemeals,setUpdateMeals] = useState(false)
     useEffect(() =>{
         if (currentUser) {
-            const start = new Date(date);
-            start.setHours(0, 0, 0, 0);
-            const end = new Date(date);
-            end.setHours(23, 59, 59, 999);
-            fetch(`http://localhost:5000/meals/${currentUser._id}/${start}/${end}`, {
-                method: 'GET',
-                credentials: 'include',
-                headers: { 'Content-Type': 'application/json' }
-            }) 
-            .then((response) => response.json())
-            .then((data) => {
-                setMeals(data)// Do something with the data
-                
-            })
-            .catch((error) => {
-                console.error(error);
-            });
+            if(!updatemeals){
+                const start = new Date(date);
+                start.setHours(0, 0, 0, 0);
+                const end = new Date(date);
+                end.setHours(23, 59, 59, 999);
+                fetch(`http://localhost:5000/meals/${currentUser._id}/${start}/${end}`, {
+                    method: 'GET',
+                    credentials: 'include',
+                    headers: { 'Content-Type': 'application/json' }
+                }) 
+                .then((response) => response.json())
+                .then((data) => {
+                    setMeals(data)// Do something with the data
+                    
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
+
+            } else {
+                setUpdateMeals(false)
+            }
+ 
         }
-    },[date, currentUser]);
+    },[date, currentUser,updatemeals]);
+
+    //delete route
+    async function deletedMeal(id) {
+        try { 
+            await fetch(`http://localhost:5000/meals/${id}`, {
+                method: 'DELETE'
+            })  
+            setUpdateMeals(true)
+        } catch (err){
+            console.error(err)
+
+        }
+    };
+
+
 
     
     return (
@@ -50,6 +72,7 @@ function Tracker() {
                     <p>{meal.calories}</p>
                     <p>{meal.fat}</p>
                     <p>{meal.protein}</p>
+                    <button onClick={() => deletedMeal(meal._id)}>Delete Meal</button>
                 </div>
             ))}
                 <button onClick={() => navigate('/mealform')}>Create A Meal!</button>

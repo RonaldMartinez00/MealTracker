@@ -7,6 +7,7 @@ import Home from './views/home';
 import Tracker from './views/Tracker';
 import Navbar from './views/navbar';
 import Mealform from './views/mealform';
+import Api from './views/api';
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Route exact path='/navbar' element={<Navbar/>}/>
         <Route exact path='/tracker' element={<Tracker/>}/>
         <Route exact path='/mealform' element={<Mealform/>}/>
+        <Route exact path='/api' element={<Api/>}/>
       </Routes>
     </CurrentUserProvider>
   );
