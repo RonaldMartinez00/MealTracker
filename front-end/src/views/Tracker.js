@@ -62,24 +62,24 @@ function Tracker() {
                 <Navbarsi />
             </div>
 
-            <div class="style-logout">
+            <div className="style-logout">
                 <Logoutbtn />
             </div>
 
-            {currentUser ? <p class="display-name" >Hello {currentUser.userfirstname} start tracking your meals here!</p> : null}
-            <p class="description">Here you can view all past Dine Diary entries.</p>
+            {currentUser ? <p className="display-name" >Hello {currentUser.userfirstname} start tracking your meals here!</p> : null}
+            <p className="description">Here you can view all past Dine Diary entries.</p>
             <DatePicker 
                 selected={date} 
                 onChange= {onChange} value={date}
                 dateFormat=	"y-MM-dd"
                 timeCaption="time"
             />
-            <div class="container">
+            <div className="container">
                 <div className='styling-button'>
                 <button onClick={() => navigate('/mealform')}>Create A Meal!</button></div>
-                <div class="data-container">
+                <div className="data-container">
                     {meals.map((meal) => (
-                        <div class="data-box" key={meal._id}>
+                        <div className="data-box" key={meal._id}>
                             <h2>NAME: {meal.mealname}</h2>
                             <p>CARBS: {meal.carbs}</p>
                             <p>CALORIES: {meal.calories}</p>

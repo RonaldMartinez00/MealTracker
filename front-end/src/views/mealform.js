@@ -52,8 +52,8 @@ return (
             <Logoutbtn />
         </div>
 
-    <p class="display-name">Create a meal here!</p>
-    <p class="description">Start by selecting a date.</p>
+    <p className="display-name">Create a meal here!</p>
+    <p className="description">Start by selecting a date.</p>
 
         <DatePicker 
             selected={date} 
