@@ -12,7 +12,7 @@ function Navbarsi() {
         const interval = setInterval(updateTime, 1000);
         setIntervalId(interval);
         return () => clearInterval(intervalId);
-    }, []);
+    }, [intervalId]);
 
     return (
         <header>
