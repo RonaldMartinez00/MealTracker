@@ -81,7 +81,8 @@ return (
             <label className="loginInput">Protein:</label>
             <input required className="userInput" type="text" name="Protein" id="insertprotein" onChange={(e)=>{
                 setProtein(e.target.value); console.log(protein)}}/>
-            <button onClick={handleSubmit} type="submit" id="createmeal">Create Meal!</button>
+            <div className='styling-button'>
+            <button onClick={handleSubmit} type="submit" id="createmeal">Create Meal!</button></div>
         </form>
     </div>
     

@@ -31,17 +31,15 @@ function Home() {
                 </div>
                 <div className="card2">
                     <div className="allCards">
-                        <h2>Nutritional Information <i className="fa fa-info"></i></h2>
-                        <p>If you need to know the Nutritional information on a meal you ate, just refer here. It 
-                        will display what you need to log into your calorie tracker. </p>
+                        <h2>Track Dates <i className="fa fa-info"></i></h2>
+                        <p>Keep track of past food inputed with our calender. With this calender you can
+                        look back and see how much progress you've been making..</p>
                     </div>
                 </div>
                 <div className="card3">
                     <div className="allCards">
-                        <h2>Track Dates <i className="fa fa-calendar"></i></h2>
-                        <p>Keep track of past food inputed with our calender. With this calender you can
-                        look back and see how much progress you've been making by seeing if you're close to your
-                        goal.</p>
+                        <h2> Random Recipes<i className="fa fa-calendar"></i></h2>
+                        <p>If you're looking to expand your knowledge on new recipes, the random recipes section is perfect for you. </p>
                     </div>
                 </div>
             </div>

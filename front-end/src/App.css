@@ -210,7 +210,7 @@ input[type="submit"]:hover {
   width: 300px;
   border: 3px solid rgb(255, 255, 255);
   margin-bottom: 30px;
-  background-image: url("/public/images/counting-cal.jpeg");
+  background-image: url("/public/images/calender.jpeg");
   background-size: cover;
 }
 .card2:hover:hover {
@@ -227,7 +227,7 @@ input[type="submit"]:hover {
   width: 300px;
   border: 3px solid white;
   margin-bottom: 30px;
-  background-image: url("/public/images/calender.jpeg");
+  background-image: url("/public/images/woman-cooking.webp");
   background-size: cover;
   margin-right: 20px;
 }
@@ -388,3 +388,30 @@ header {
 
 }
 
+.custom-button {
+  background-color: white;
+  color: black;
+  font-size: 18px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-family: 'Courier New', Courier, monospace;
+  display: grid;
+  place-items: center;
+}
+
+.image-container, img{
+  height: 380px;
+  width: 380px;
+}
+
+.recipe-style{
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+  color: black;
+  font-size: 18px;
+}
+
+.styling-button{
+  font-family: 'Courier New', Courier, monospace;
+  margin-bottom: 35px;
+}
