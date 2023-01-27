@@ -19,7 +19,7 @@ function Mealform(){
     const handleSubmit = async (e) => {
         e.preventDefault()
         try{
-            await fetch('http://localhost:5000/meals', {
+            await fetch('https://serene-mesa-48537.herokuapp.com/meals', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({   
@@ -52,8 +52,8 @@ return (
             <Logoutbtn />
         </div>
 
-    <p class="display-name">Create a meal here!</p>
-    <p class="description">Start by selecting a date.</p>
+    <p className="display-name">Create a meal here!</p>
+    <p className="description">Start by selecting a date.</p>
 
         <DatePicker 
             selected={date} 

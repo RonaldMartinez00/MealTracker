@@ -17,7 +17,7 @@ function Navbarsi() {
     return (
         <header>
             <div className="nav-style">
-            <h1 class="h1-fit">Dine Diary <img src="./images/avo-header-2.jpeg" alt="avocado" class="avocado"></img> </h1>
+            <h1 className="h1-fit">Dine Diary <img src="./images/avo-header-2.jpeg" alt="avocado" class="avocado"></img> </h1>
                 <div className="clock-style">
                 {time}
                 </div>

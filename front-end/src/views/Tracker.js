@@ -19,7 +19,7 @@ function Tracker() {
                 start.setHours(0, 0, 0, 0);
                 const end = new Date(date);
                 end.setHours(23, 59, 59, 999);
-                fetch(`http://localhost:5000/meals/${currentUser._id}/${start}/${end}`, {
+                fetch(`https://serene-mesa-48537.herokuapp.com/meals/${currentUser._id}/${start}/${end}`, {
                     method: 'GET',
                     credentials: 'include',
                     headers: { 'Content-Type': 'application/json' }
@@ -43,7 +43,7 @@ function Tracker() {
     //delete route
     async function deletedMeal(id) {
         try { 
-            await fetch(`http://localhost:5000/meals/${id}`, {
+            await fetch(`https://serene-mesa-48537.herokuapp.com/meals/${id}`, {
                 method: 'DELETE'
             })  
             setUpdateMeals(true)
@@ -62,24 +62,24 @@ function Tracker() {
                 <Navbarsi />
             </div>
 
-            <div class="style-logout">
+            <div className="style-logout">
                 <Logoutbtn />
             </div>
 
-            {currentUser ? <p class="display-name" >Hello {currentUser.userfirstname} start tracking your meals here!</p> : null}
-            <p class="description">Here you can view all past Dine Diary entries.</p>
+            {currentUser ? <p className="display-name" >Hello {currentUser.userfirstname} start tracking your meals here!</p> : null}
+            <p className="description">Here you can view all past Dine Diary entries.</p>
             <DatePicker 
                 selected={date} 
                 onChange= {onChange} value={date}
                 dateFormat=	"y-MM-dd"
                 timeCaption="time"
             />
-            <div class="container">
+            <div className="container">
                 <div className='styling-button'>
                 <button onClick={() => navigate('/mealform')}>Create A Meal!</button></div>
-                <div class="data-container">
+                <div className="data-container">
                     {meals.map((meal) => (
-                        <div class="data-box" key={meal._id}>
+                        <div className="data-box" key={meal._id}>
                             <h2>NAME: {meal.mealname}</h2>
                             <p>CARBS: {meal.carbs}</p>
                             <p>CALORIES: {meal.calories}</p>

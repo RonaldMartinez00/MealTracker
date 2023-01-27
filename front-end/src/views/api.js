@@ -16,7 +16,7 @@ function Api() {
 
 <Navbarsi />
 </div>
-<p class="display-name">Want to explore new recipes? Click the button below!</p>
+<p className="display-name">Want to explore new recipes? Click the button below!</p>
 <div className='custom-button'>
 <button className="custom-button" onClick={fetchData}>Get Random Meal</button></div>
       {data && (
