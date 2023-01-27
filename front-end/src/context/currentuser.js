@@ -8,7 +8,7 @@ function CurrentUserProvider({children}){
     useEffect (() => {
         const getLoggedInUser = async () => {
             try {
-                 let response = await fetch('http://localhost:5000/auth/profile', {
+                 let response = await fetch('https://serene-mesa-48537.herokuapp.com/auth/profile', {
                 credentials: 'include',
                 headers: {
                     'Authorization':`Bearer ${localStorage.getItem('token')}`

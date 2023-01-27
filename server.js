@@ -14,7 +14,7 @@ const { METHODS } = require('http');
 
 
 var corsOptions= {
-origin:'http://localhost:3000',
+origin:'https://serene-mesa-48537.herokuapp.com/',
 methods:"GET, POST, DELETE, PUT",
 changeOrigin:true, 
 credentials:true
