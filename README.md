@@ -1,4 +1,4 @@
-# Infinite Disc
+# Dine-Diary
 
 ## Description
 Introducing Dine Diary, the ultimate meal tracking and recipe discovery app. With Dine Diary, you can easily log your daily meals and and view past meals. By viewing past meals you have the opportunity to see how much progress you’ve made over the days. This app is for anyone who is looking to keep track of what they’re eating and discover new recipes that they would love to try along the way.
@@ -8,6 +8,7 @@ Introducing Dine Diary, the ultimate meal tracking and recipe discovery app. Wit
 - [Technology](#Technology)
 - [Use](#Use)
 - [Future-Development](#Future-Development)
+- [Links](#Links)
 - [Contribution](#Contributing)
 - [Usernames](#Usernames)
 ## User-Story
